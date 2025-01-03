@@ -1,13 +1,10 @@
 <template>
     <div class="modal-overlay">
-      <div class="modal">
+      <div class="modal" :class="{sale: theme === 'sale'}">
+        <!-- we can cutomize it based on if it is sale or not
+         so its dynamic now -->
         <h1>{{ header }}</h1>
         <p>{{ offer }}</p>
-        <!-- so what if we want to use modal for many times. ok but its content is fixed
-         and for this problem we use props, to make our componenet more dynamic and reusable.
-         2. what if many components want to use same user data array
-         we cant hardcode it in every component, so we hardcode it
-         prop r a way to pass data from a parent component like app to children component like modal-->
         <button @click="$emit('close')">Close Modal</button>
       </div>
     </div>
@@ -18,7 +15,8 @@
     name: "Modal",
     props: {
         header: String,
-        offer: String
+        offer: String,
+        theme: String
     }
   }
   </script>
@@ -46,6 +44,13 @@
   
   .modal h1{
     color: blue;
+  }
+  .modal.sale{
+    background: red;
+    color: white;
+  }
+  .modal.sale h1{
+    color: white;
   }
   </style>
   
