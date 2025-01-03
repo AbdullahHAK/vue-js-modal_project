@@ -1,12 +1,21 @@
 <template>
   <h1>{{ title }}</h1>
   <button @click="showModal=true">show modal</button>
+  <button @click="showModal2=true">show modal2</button>
 
-  <Modal v-if="showModal" theme="sale" @close="toggleModal">
+  <Modal v-if="showModal2" theme="blahblah" @close="toggleModal2">
+      <template v-slot:links>
+        <a href="#">get a job</a>
+        <a href="#">get a wife</a>
+        <a href="#">get both</a>
+      </template> 
+      <h1>work hard for the giveaway</h1>
+      <p>throw your degree cuz its of no use</p>
+    </Modal>
+  <Modal v-if="showModal" theme="blahblah" @close="toggleModal">
       <template v-slot:links>
         <a href="#">sign up</a>
         <a href="#">get degree</a>
-        <!-- name slots, u must mention their name in child component where u want to use it -->
       </template> 
       <h1>sign up for the giveaway</h1>
       <p>grab your degree cuz its of no use</p>
@@ -25,13 +34,15 @@ export default {
     return{
       title: "my first vue app :))))",
       showModal: false,
-      header: "sign up for the giveaway",
-      offer: "grab your degree cuz its of no use"
+      showModal2: false
     }
   },
   methods:{
     toggleModal(){
       this.showModal = !this.showModal
+    },
+    toggleModal2(){
+      this.showModal2=!this.showModal2
     }
   }
   

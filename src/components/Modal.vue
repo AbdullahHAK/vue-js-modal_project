@@ -1,12 +1,12 @@
 <template>
     <div class="modal-overlay" @click.self="closeModal">
         
-      <div class="modal" :class="{sale: theme === 'blahblah'}">
-        <slot>deafult content</slot> <!-- this will only show when theres no default content -->
+      <div class="modal" :class="{sale: theme === 'sale'}">
+        <slot>deafult content</slot> 
         <div class="actions">
             <slot name="links"></slot>
         </div>
-        <!-- we use slots to pass in templates not like string or boolean data which props cann do -->
+        
       </div>
     </div>
   </template>
@@ -23,7 +23,7 @@
         }
     }
   }
-  </script>
+  </script> 
   
   
   <style>    
