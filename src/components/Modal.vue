@@ -1,10 +1,12 @@
 <template>
     <div class="modal-overlay" @click.self="closeModal">
-        <!-- now modal is only closing when i click outside not on it -->
-      <div class="modal" :class="{sale: theme === 'sale'}">
-        <h1>{{ header }}</h1>
-        <p>{{ offer }}</p>
-        <!-- to react on certain events we use click event modifiers -->
+        
+      <div class="modal" :class="{sale: theme === 'blahblah'}">
+        <slot>deafult content</slot> <!-- this will only show when theres no default content -->
+        <div class="actions">
+            <slot name="links"></slot>
+        </div>
+        <!-- we use slots to pass in templates not like string or boolean data which props cann do -->
       </div>
     </div>
   </template>
@@ -13,8 +15,6 @@
   export default {
     name: "Modal",
     props: {
-        header: String,
-        offer: String,
         theme: String
     },
     methods: {
@@ -55,6 +55,19 @@
   }
   .modal.sale h1{
     color: white;
+  }
+  .modal .actions{
+    text-align: center;
+    margin: 30px 0 10px 0;
+    color: #333;
+  }
+  .modal .actions a{
+    color: #333;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px;
   }
   </style>
   
