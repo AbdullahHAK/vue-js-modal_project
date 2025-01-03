@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <button @click="showModal=true">show modal</button>
 
-  <Modal v-if="showModal" :header="header" :offer="offer" theme="sale" @close="showModal=false"/>
+  <Modal v-if="showModal" :header="header" :offer="offer" theme="sale" @close="toggleModal"/>
   
 </template>
 
@@ -19,6 +19,11 @@ export default {
       showModal: false,
       header: "sign up for the giveaway",
       offer: "grab your degree cuz its of no use"
+    }
+  },
+  methods:{
+    toggleModal(){
+      this.showModal = !this.showModal
     }
   }
   

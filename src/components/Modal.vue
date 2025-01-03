@@ -1,11 +1,11 @@
 <template>
-    <div class="modal-overlay">
+    <div class="modal-overlay" @click="closeModal">
       <div class="modal" :class="{sale: theme === 'sale'}">
         <!-- we can cutomize it based on if it is sale or not
          so its dynamic now -->
         <h1>{{ header }}</h1>
         <p>{{ offer }}</p>
-        <button @click="$emit('close')">Close Modal</button>
+        
       </div>
     </div>
   </template>
@@ -17,6 +17,11 @@
         header: String,
         offer: String,
         theme: String
+    },
+    methods: {
+        closeModal(){
+            this.$emit('close')
+        }
     }
   }
   </script>
