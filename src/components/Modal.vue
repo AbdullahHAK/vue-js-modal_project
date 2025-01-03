@@ -1,11 +1,10 @@
 <template>
-    <div class="modal-overlay" @click="closeModal">
+    <div class="modal-overlay" @click.self="closeModal">
+        <!-- now modal is only closing when i click outside not on it -->
       <div class="modal" :class="{sale: theme === 'sale'}">
-        <!-- we can cutomize it based on if it is sale or not
-         so its dynamic now -->
         <h1>{{ header }}</h1>
         <p>{{ offer }}</p>
-        
+        <!-- to react on certain events we use click event modifiers -->
       </div>
     </div>
   </template>
