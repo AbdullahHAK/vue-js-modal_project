@@ -1,6 +1,8 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />  <!-- this wont work until i first import it and then register it in components -->
+  <button @click="showModal=true">show modal</button>
+
+  <Modal v-if="showModal" @close="showModal=false"/>
 </template>
 
 <script> 
@@ -12,7 +14,8 @@ export default {
   },
   data(){
     return{
-      title: "my first vue app :))))"
+      title: "my first vue app :))))",
+      showModal: false
     }
   }
   

@@ -1,25 +1,37 @@
 <template>
-    <div class="backdrop"> 
-        <!-- it will fade the background out just like when a pop up appears -->
-        <div class="modal">
-            <p>modal content</p>
-        </div>
+    <div class="modal-overlay">
+      <div class="modal">
+        <h2>This is a modal</h2>
+        <p>Click outside or on the button to close it.</p>
+        <button @click="$emit('close')">Close Modal</button>
+      </div>
     </div>
-</template>
-
-<style>
- .backdrop{
- top: 0;
- position: fixed;
- background: rgba(0,0,0,0.5);
- width: 100%;
- height: 100%;
- }
- .modal{
- width: 400px;
- padding: 20px;
- margin: 100px auto;
- background: white;
- border-radius: 10px;
- }
-</style>
+  </template>
+  
+  <script>
+  export default {
+    name: "Modal"
+  }
+  </script>
+  
+  <style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  </style>
+  
