@@ -2,7 +2,8 @@
   <h1>{{ title }}</h1>
   <button @click="showModal=true">show modal</button>
 
-  <Modal v-if="showModal" @close="showModal=false"/>
+  <Modal v-if="showModal" header="sign up for the giveaway" offer="grab your degree cuz its of no use" @close="showModal=false"/>
+  
 </template>
 
 <script> 

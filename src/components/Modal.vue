@@ -1,8 +1,13 @@
 <template>
     <div class="modal-overlay">
       <div class="modal">
-        <h1>This is a modal</h1>
-        <p>Click outside or on the button to close it.</p>
+        <h1>{{ header }}</h1>
+        <p>{{ offer }}</p>
+        <!-- so what if we want to use modal for many times. ok but its content is fixed
+         and for this problem we use props, to make our componenet more dynamic and reusable.
+         2. what if many components want to use same user data array
+         we cant hardcode it in every component, so we hardcode it
+         prop r a way to pass data from a parent component like app to children component like modal-->
         <button @click="$emit('close')">Close Modal</button>
       </div>
     </div>
@@ -10,11 +15,15 @@
   
   <script>
   export default {
-    name: "Modal"
+    name: "Modal",
+    props: {
+        header: String,
+        offer: String
+    }
   }
   </script>
   
-  <!-- <style scoped> /* now values of modals h1 will not be affected by app's h1 values, vue adds a data tag with every element, however it might slow down ur performance */ -->
+  
   <style>    
   .modal-overlay {
     position: fixed;
@@ -34,7 +43,7 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  /* this is another way which doesnt decrease ur performance cuz u r specific */
+  
   .modal h1{
     color: blue;
   }
